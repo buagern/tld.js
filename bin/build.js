@@ -18,7 +18,8 @@ request(dataUri, function (err, response, body) {
     throw Error(err);
   }
 
-  var rules = parser.parse(body);
+  var rules = JSON.stringify(parser.parse(body));
 
-  JSON.stringify(rules).to('src/rules.json');
+  rules.to('src/rules.json');
+  parser.wrap(rules).to('src/tld.rules.js');
 });

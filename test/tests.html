@@ -9,12 +9,13 @@
   <script>mocha.setup('tdd');</script>
   <script src="../lib/rule.js"></script>
   <script src="../lib/tld.js"></script>
+  <script src="../src/tld.rules.js"></script>
   <script src="rule.js"></script>
   <script src="tld.js"></script>
   <script src="publicsuffix.js"></script>
   <script>var tld = tld.init();</script>
-  <script>$.getJSON('../src/rules.json', function (response) {
-    tld.rules = response;
+  <script>$(function(){
+    tld.augment();
     mocha.run();
   });</script>
 </head>
