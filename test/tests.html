@@ -7,19 +7,14 @@
   <script src="../node_modules/mocha/mocha.js"></script>
   <link rel="stylesheet" type="text/css" href="../node_modules/mocha/mocha.css" />
   <script>mocha.setup('tdd');</script>
-  <script>
-    if (typeof module === 'undefined'){
-      var module = this['module'] = {'exports': {}};
-      var require = function(path){ return null };
-    }
-  </script>
   <script src="../lib/rule.js"></script>
   <script src="../lib/tld.js"></script>
   <script src="rule.js"></script>
   <script src="tld.js"></script>
   <script src="publicsuffix.js"></script>
-  <script>$(function () {
-
+  <script>var tld = tld.init();</script>
+  <script>$.getJSON('../src/rules.json', function (response) {
+    tld.rules = response;
     mocha.run();
   });</script>
 </head>
