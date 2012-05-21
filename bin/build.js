@@ -3,7 +3,7 @@
 "use strict";
 
 var request = require('request');
-var parser = require('../lib/rule.js');
+var parser = require('../lib/rule-parser.js').init();
 require('shelljs/global');
 
 //@todo put that in a default optimist value
@@ -18,7 +18,7 @@ request(dataUri, function (err, response, body) {
     throw Error(err);
   }
 
-  var tlds = parser.parse(body);
+  var rules = parser.parse(body);
 
-  JSON.stringify(tlds).to('src/rules.json');
+  JSON.stringify(rules).to('src/rules.json');
 });
