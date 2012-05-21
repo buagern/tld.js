@@ -1,5 +1,7 @@
-var tld = require('../index.js');
-var expect = require('expect.js');
+if (typeof require === 'function'){
+  var tld = require('../index.js');
+  var expect = require('expect.js');
+}
 
 suite('tld.js', function(){
   suite('Basics', function(){

@@ -1,5 +1,7 @@
-var tld = require('../index.js');
-var expect = require('expect.js');
+if (typeof require === 'function'){
+  var tld = require('../index.js');
+  var expect = require('expect.js');
+}
 
 suite('http://publicsuffix.org/list/test.txt', function(){
   test('NULL input', function(){
