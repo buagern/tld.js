@@ -1,0 +1,21 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>tld.js Browser Test Suite</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="../node_modules/expect.js/expect.js"></script>
+  <script src="../node_modules/mocha/mocha.js"></script>
+  <script>mocha.setup('tdd');</script>
+  <script src="../lib/rule.js"></script>
+  <script src="../lib/tld.js"></script>
+  <script src="rule.js"></script>
+  <script src="tld.js"></script>
+  <script src="publicsuffix.js"></script>
+  <script>$(function () {
+    mocha.run();
+  });</script>
+</head>
+<body>
+<div id="mocha"></div>
+</body>
+</html>
