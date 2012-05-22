@@ -14,7 +14,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --ui tdd",
-    "build": "./bin/build.js"
+    "build": "./bin/build.js build"
   },
   "engines": {
     "node": "~0.6.17"
