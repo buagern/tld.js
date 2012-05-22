@@ -48,14 +48,31 @@ tld.isValid('t.go'); // returns `false`
 
 ## Browser-side
 
-**Notice**: this part has not been developed yet.
-
-The library is designed to be useable on the browser-side, in an framework agnostic fashion. No `jQuery.tld()`.
+The library is designed to be useable on the browser-side, in an framework agnostic fashion.
+It is also designed to be lightweight and performant: rules are bundled with the library by default.
 
 ```javascript
-<script src="/path/to/tld.js"></script>
+<script src="/path/to/tld.min.js"></script>
 <script>
 tld.getDomain(window.location.host); //returns the current domain
+</script>
+```
+
+You want to load the rules on your own? No problem, they are available seperately, such as the `tld` object.
+You could indeed load the rules asynchroneously to delay the payload to a more convenient moment.
+
+```javascript
+<script src="/path/to/tld-core.min.js" async></script>
+<script>
+jQuery.one('focus', '#domain-extractor-input', function(){
+  var d = window.document;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = "/path/to/tld.rules.min.js";
+  d.documentElement.appendChild(s);
+
+  this.setAttribute('data-tldjs-ready', true);
+});
 </script>
 ```
 
